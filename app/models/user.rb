@@ -13,8 +13,10 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  validates :username, uniqueness: true
+
   has_many :surveys
-  
+
   has_many :surveyed_users
   has_many :responses, through: :surveyed_users
 end
