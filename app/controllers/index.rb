@@ -12,10 +12,15 @@ end
 
 post '/signup' do
   @user = User.new(params[:create])
+  p @user
+if params[:create][:password_hash] != ""
+  @user.save
   @user.password = params[:create][:password_hash]
   @user.save
   session[:user_id] = @user.id
   # redirect '/'
+
+end
   erb :index
 end
 

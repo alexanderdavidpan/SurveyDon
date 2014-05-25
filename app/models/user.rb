@@ -2,6 +2,9 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   # users.password_hash in the database is a :string
+  validates :username, presence: true
+  validates :username, uniqueness: true
+
   include BCrypt
 
   def password
@@ -14,7 +17,7 @@ class User < ActiveRecord::Base
   end
 
   has_many :surveys
-  
+
   has_many :surveyed_users
   has_many :responses, through: :surveyed_users
 end
