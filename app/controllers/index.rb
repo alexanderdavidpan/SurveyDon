@@ -51,8 +51,26 @@ get '/take_survey/:survey_id' do
 end
 
 post '/take_survey/:survey_id/submit' do
+  @user = User.find(session[:user_id])
+  @survey = Survey.find_by_id(params[:survey_id])
+  @surveyed_user = SurveyedUser.create
+  
+  @user.surveyed_users << @surveyed_user
+  @survey.surveyed_users << @surveyed_user
 
-  redirect 'surveys'
+  @survey.questions.count.times do |i|
+    @response = Response.create
+    @surveyed_user.responses << @response
+
+    p "TEST"
+    p params[:choice]
+    p (params[:choice][@survey.questions[i].id.to_s]).to_i
+    p "END TEST"
+    choice = Choice.find((params[:choice][@survey.questions[i].id.to_s]).to_i)
+    choice.responses << @response
+  end
+
+  redirect '/surveys'
 end
 
 get '/surveys/create' do

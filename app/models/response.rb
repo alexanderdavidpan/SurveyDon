@@ -1,6 +1,5 @@
 class Response < ActiveRecord::Base
   belongs_to :choice
+  belongs_to :surveyed_users
   
-  has_many :surveyed_users
-  has_many :users, through: :surveyed_users
 end
