@@ -1,5 +1,5 @@
 <h1>Edit Question</h1>
-<form action="/survey/<%=@survey.id%>/question/<%=@question.id%>/edit" method="post">
+<form class="pure-form" action="/survey/<%=@survey.id%>/question/<%=@question.id%>/edit" method="post">
   <div class="edit_question">
     Q: <input type="text" class="question" name="question[question]"value="<%= @question.question%>"></input>
     <ul>
