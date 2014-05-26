@@ -13,6 +13,9 @@
   -->
   <link rel="stylesheet" href="/css/application.css">
   <link rel="stylesheet" href="/css/form.css">
+  <link rel="stylesheet" href="/css/thedon.css">
+  <link href='http://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -26,8 +29,9 @@
 <body>
   <div class="container">
    <nav>
-    <ul>
 
+    <ul>
+      <li><a href="/">Home</a>
       <% if session[:user_id] %>
       <li><a href="/logout" id="logout">Logout</a></li>
       <% else %>
