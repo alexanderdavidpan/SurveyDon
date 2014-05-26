@@ -138,7 +138,7 @@ get '/survey/:survey_id/delete' do
   #destroy all data for survey's surveyed users
   SurveyedUser.where(survey_id: params[:survey_id]).destroy_all
   #destroy all data for responses to survey
-  Response.where()
+  # Response.where()
   #destroy all choices related to question
   survey.questions.each do |question|
     question.choices.destroy_all
