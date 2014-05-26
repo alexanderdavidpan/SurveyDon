@@ -58,7 +58,7 @@ text {
   fill: white !important;
 }
 
-g:last-child text {
+svg > g:last-child text {
   fill: black !important;
 }
 
